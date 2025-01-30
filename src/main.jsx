@@ -4,13 +4,17 @@ import './index.css'
 import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import CurrentTabContext from './components/context/index.jsx'
+import { Provider } from 'react-redux'
+import store from './store/index.js'
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <StrictMode>
-      <CurrentTabContext>
-        <App />
-      </CurrentTabContext>
+      <Provider store={store}>
+        <CurrentTabContext>
+          <App />
+        </CurrentTabContext>
+      </Provider>
     </StrictMode>
   </BrowserRouter>
   ,

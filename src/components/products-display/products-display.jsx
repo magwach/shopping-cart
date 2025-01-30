@@ -1,7 +1,28 @@
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, removeFromCart } from "../../store/slices/cart-slice";
+import { useEffect } from "react";
+
 
 export default function DisplayProduct({ product }) {
 
+    const dispatch = useDispatch();
+    const { cart } = useSelector(state => state)
+    const inCart = cart.some(item => item.id === product.id);
+    const displayValue = inCart ? "Remove from" : "Add to";
 
+    function handleClick() {
+        const cpyCart = [...cart];
+        const index = cpyCart.findIndex(item => item.id === product.id);
+        if (index !== -1) {
+            dispatch(removeFromCart(product.id));
+        } else {
+            dispatch(addToCart(product));
+        }
+    }
+
+    useEffect(() => {
+        console.log(cart);
+    }, [cart])
     function StarRating({ rating }) {
         return (
             <div className="flex w-full justify-center">
@@ -39,7 +60,7 @@ export default function DisplayProduct({ product }) {
     }
 
     return (
-        <div className="group flex flex-col items-center border-1 rounded-lg p-3  h-[320px] lg:h-[400px] text-xs lg:text-lg cursor-pointer hover:shadow-black hover:shadow-2xl">
+        <div className="group flex flex-col items-center border-1 rounded-lg p-3  h-[370px] lg:h-[430px] text-xs lg:text-lg cursor-pointer hover:shadow-black hover:shadow-2xl ">
             <img
                 src={product?.image}
                 alt={product?.title}
@@ -48,7 +69,7 @@ export default function DisplayProduct({ product }) {
             <p className="mt-3 font-medium">{product?.title}</p>
             <div className="my-3 text-xl font-bold">${product?.price}</div>
             <StarRating rating={product?.rating?.rate} />
-            <button className="hidden group-hover:block border-2 rounded-md bg-[#0d0d0d] text-[#f5f5f5] font-bold w-full h-11 cursor-pointer">Add to cart</button>
+            <button onClick={() => handleClick()} className="hidden group-hover:block border-2 rounded-md bg-[#0d0d0d] text-[#f5f5f5] font-bold w-full h-11 cursor-pointer mt-4 z-1">{displayValue} cart</button>
         </div>
     )
 }

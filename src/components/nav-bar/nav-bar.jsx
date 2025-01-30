@@ -7,10 +7,10 @@ import { Context } from "../context";
 
 
 export default function NavBar() {
-    const { currentTab, setCurrentTab } = useContext(Context)
+    const { currentTab } = useContext(Context)
 
     return (
-        <nav className="flex flex-row justify-between align-middle w-full container text-[#0d0d0d] text-lg font-bold mx-auto py-2 px-5 lg:px-9 border-2 border-[#0d0d0d] rounded-xl lg:text-2xl lg:py-4 ">
+        <nav className="flex flex-row justify-between align-middle w-full container text-[#0d0d0d] text-lg font-bold mx-auto py-2 px-5 lg:px-9 border-2 border-[#0d0d0d] rounded-xl lg:text-2xl lg:py-4 fixed top-1 z-50 bg-white">
             <Link to={'/'} className="cursor-pointer">
                 <TiHome className="size-7 lg:size-10 hover-class" color={currentTab === 'Home' && '#D4AF37'} />
             </Link>

@@ -8,8 +8,8 @@ function App() {
 
   return (
     <div className='mx-auto container'>
-      <NavBar />
-      <div className='mx-auto container rounded-2xl p-5 lg:p-8 border-2 border-[#0d0d0d] mt-5 lg:mt-9'>
+      <NavBar  />
+      <div className='mx-auto container rounded-2xl p-5 lg:p-8 border-2 border-[#0d0d0d] mt-17 lg:mt-25'>
         <Routes>
           <Route
             exact
