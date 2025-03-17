@@ -87,16 +87,16 @@ export default function Cart() {
                 {cart.map(item => (
                     <div key={item.id} className="flex flex-col w-full border-1 border-black p-4">
                         <div className="flex flex-row gap-3">
-                            <div className="h-[120px] w-[90px] lg:h-[160px] lg:w-[120px] ">
+                            <div className="h-[120px] w-[90px] lg:h-[300px] lg:w-[450px] ">
                                 <img src={item.image} alt={item.title} className="w-full h-full" />
                             </div>
-                            <div className="flex flex-col w-full gap-23">
+                            <div className="flex flex-col w-full gap-23 lg:gap-50">
                                 <div className="flex justify-between w-full">
                                     <p className="text-lg font-semibold lg:text-2xl">{item.title}</p>
                                     <p className="text-lg font-semibold lg:text-2xl">${item.price}</p>
                                 </div>
                                 <div className="flex flex-row justify-between w-full">
-                                    <FaTrashAlt color="black" className="size-7 lg:size-14 cursor-pointer" onClick={() => handleRemove(item)} />
+                                    <FaTrashAlt color="black" className="size-7 lg:size-14 cursor-pointer hover:fill-[#d43737] transition-colors duration-200" onClick={() => handleRemove(item)} />
                                     <NumberInput item={item} onChange={handleQuantityChange} />
                                 </div>
                             </div>

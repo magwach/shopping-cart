@@ -22,7 +22,8 @@ export default function DisplayProduct({ product }) {
 
     useEffect(() => {
         console.log(cart);
-    }, [cart])
+    }, [cart]);
+    
     function StarRating({ rating }) {
         return (
             <div className="flex w-full justify-center">
@@ -60,7 +61,7 @@ export default function DisplayProduct({ product }) {
     }
 
     return (
-        <div className="group flex flex-col items-center border-1 rounded-lg p-3  h-[370px] lg:h-[430px] text-xs lg:text-lg cursor-pointer hover:shadow-black hover:shadow-2xl ">
+        <div className="group flex flex-col items-center border-1 rounded-lg p-3  h-[420px] lg:h-[600px] text-xs lg:text-lg cursor-pointer hover:shadow-black hover:shadow-2xl ">
             <img
                 src={product?.image}
                 alt={product?.title}
